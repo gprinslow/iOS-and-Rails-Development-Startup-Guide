@@ -101,7 +101,7 @@ Developing with iOS requires installation of Apple's Xcode tool.
 ### 3.2. Browser
 
 1.	Web browsers are a personal choice but it is advisable to install up-to-date versions of popular browsers to cross-check for compatibility and appearance testing.
-	*	I personally use Chrome regularly and cross-check on FireFox and Safari.
+2.	I personally use Chrome regularly and cross-check on FireFox and Safari. The Firebug add-on for FireFox can be very useful for inspecting problematic HTML/CSS.
 
 ### 3.3. Ruby Version Manager (RVM)
 
@@ -142,8 +142,7 @@ Developing with iOS requires installation of Apple's Xcode tool.
 
 2.	Get the latest (head) version of RVM and reload:
 
-		$ rvm get head
-		$ rvm reload
+		$ rvm get head && rvm reload
 
 3.	Install Ruby 1.9.3 (for Rails 3.1):
 
@@ -167,9 +166,61 @@ Developing with iOS requires installation of Apple's Xcode tool.
 
 ### 3.5. RubyGems
 
+1.	[RubyGems](http://rubygems.org/) manages the gems (packages) you use in your Ruby projects, and makes installing, using and uninstalling gems straightforward.
+2.	RubyGems should have been included with the RVM installation.  To verify, run:
+		
+		$ which gem
+
+3.	If RubyGems is installed, then just update the RubyGem system:
+
+		$ gem update --system
+
+4.	If RubyGems is *not* installed, then it must be installed manually:
+
+	1.	Download the latest version [here](http://rubygems.org/pages/download)
+	2.	Unpack the package into a directory
+	3.	In that directory, install it by running the command:
+	
+			$ ruby setup.rb
+			
+5.	As a final (optional) step, you may suppress automatic documentation to speed up gem installation.
+
+	1.	Create a text file called `.gemrc` in your home `~` directory.
+	2.	Add the following line to this `.gemrc` file:
+	
+			gem: --no-ri --no-rdoc
+
+6.	RubyGems is now installed.
+ 
 ### 3.6. Rails
 
+1.	The first step to installing Rails is adding entries to your PATH:
+
+		$ export PATH="/usr/local/bin:/usr/local/sbin:/usr/local/mysql/bin:$PATH"
+		
+2.	Next, run the installation command:
+
+		$ gem install rails
+		
+		Note that you may also specify a specific version, e.g.
+		
+				$ gem install rails --version 3.1.0
+				
+3.	When the installation completes, check that Rails is installed by running:
+
+		$ rails -v
+
+4.	The version of Rails will display if installed correctly.  If it does not, ensure that you have added the entries to your PATH per Step 1.
+
+5.	Rails is now installed.
+
 ### 3.7. Git
+
+1.	This step is not technically required but if you want any version control on your Rails project, Git is one of the easiest to use.  Since its free, simple, and runs locally, there really is no reason *not* to use it.  Of course, you can use another type of source control, but I will cover Git in this guide.
+
+2.	Git should have been installed by Xcode but it is advisable to install manually as well.  These instructions are adapted from the [Installing Git section of Pro Git](http://progit.org/book/ch1-4.html).
+
+3.	On Mac OS X 10.6/10.7: The easiest way is to install Git using the [Git-OSX-Installer](http://code.google.com/p/git-osx-installer/downloads/list).  Select an appropriate package and install according to its instructions.  Note that Snow Leopard packages will work on Lion.
 
 ### 3.8. Github [optional]
 
