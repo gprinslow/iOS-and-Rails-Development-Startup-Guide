@@ -222,15 +222,70 @@ Developing with iOS requires installation of Apple's Xcode tool.
 
 3.	On Mac OS X 10.6/10.7: The easiest way is to install Git using the [Git-OSX-Installer](http://code.google.com/p/git-osx-installer/downloads/list).  Select an appropriate package and install according to its instructions.  Note that Snow Leopard packages will work on Lion.
 
+4.	Following installation of Git, the following setup commands are necessary:
+
+	1.	Set up your user name and email address:
+	
+			$ git config --global user.name "Your Name"
+			$ git config --global user.email youremail@example.com
+			
+	2. Identify your text editor, e.g. TextMate:
+	
+			$ git config --global core.editor "mate -w"
+			
+	3. To save time, make an alias of the checkout command:
+	
+			$ git config --global alias.co checkout
+
+5.	Your installation of Git is complete for purposes of this guide.  Other options are well documented [here](http://progit.org). 
+
 ### 3.8. Github [optional]
 
+1.	Installation of Github is optional because by default, Github shares all code publicly.
+
+	*	Getting a private repo is not cheap.  So this is best used for projects that will not be commercialized, or you are willing to pay for the private repository.
+	
+	*	However, you may feel warm and fuzzy about sharing and helping out the open source community.  Its up to you.
+	
+2.	This guide will proceed assuming that Github is being used.  Any Github-specific steps may be skipped if you are not using it.
+
+3.	Go to [Github](https://github.com/).
+
+4.	Sign up for Github account [here](https://github.com/signup/free).
+
+5.	Follow the instructions to create your keys and set up your account on Github.
+
+	*	You may also refer to the steps [here](http://help.github.com/mac-set-up-git/), e.g. for re-installing on a new computer.
+	
+6.	Your installation of Github is now complete.  You may also download [Github for Mac](http://mac.github.com) as an alternative to the command line.
+
 ### 3.9. Dropbox [optional]
+
+1.	Dropbox is a popular cloud file backup service that may be used in conjunction with Git.  This material is adapted from [here](http://www.andyhawthorne.net/2011/09/git-and-dropbox-together/).
+
+	*	Dropbox versions files and syncs across devices.  It is free up to 2GB.  Unlike Github, it is private by default.
+	*	Cloning repos through Dropbox makes it easier to work on the same project using multiple computers.
+
+2.	[Sign up](https://www.dropbox.com/) for a Dropbox account.
+
+3.	[Download] Dropbox and install it.
+
+4.	Create an directory for your repository backups.
+
+	* For example, `~/Dropbox/dev/repos`.
+	* Note that any directory within `Dropbox/Public` is shared publicly by default.
+	
+5.	Installation of Dropbox is complete.  See the section below 'Starting a Rails Project' for further instructions.
 
 ---
 
 ## 4. Starting an iOS Project
 
-* General note: Advise naming project as you would want it to appear in App Store.  Denote prototypes using Git branches.
+1.	This step is better covered by other guides on iOS development.
+	
+	*	A good starting point is the [official starting guide from Apple](https://developer.apple.com/library/ios/#referencelibrary/GettingStarted/RoadMapiOS/Introduction/Introduction.html).
+	* Of the books I have read, I like the Big Nerd Ranch Guide to iOS programming the most.
+	*	A general note: I advise naming your iOS project as you would want it to appear in the App Store.  Prototype names are best tracked using Git branches.
 
 ---
 
