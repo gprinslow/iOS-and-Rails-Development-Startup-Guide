@@ -298,3 +298,53 @@ Developing with iOS requires installation of Apple's Xcode tool.
 ---
 
 ## 6. Integrating iOS with Rails
+
+___
+
+## 7. Appendix
+
+### Useful Commands & Tips
+
+*	Bundler:
+	*	Default:	`bundle exec [command]`
+	*	Install:	`bundle install --binstubs`
+	*	Then:			`bin/[command]`
+
+*	Common Commands:
+
+		bin/spork
+		bin/rake db:migrate
+		bin/rake db:test:prepare
+		autotest
+		rails s
+		rails s thin
+		bin/annotate --position before
+
+*	Running locally as “Production”:
+
+		bin/rake db:migrate RAILS_ENV=production
+		rails server --environment production
+
+*	Precompile assets to make Heroku happy:
+
+		heroku rake db:migrate
+		bundle exec rake assets:precompile
+
+*	Reset records in database:
+	
+		bin/rake db:reset
+		
+*	Remove a file from git repository without deleting local copy:
+	
+		git rm --cached {filename}
+		
+*	Populate DB with sample users using lib/tasks/x.rake
+	
+		bundle exec rake db:populate
+		
+*	Push commands being used:
+	*	`git push [origin <branch_name>]`					=> Github
+	*	`git push clone [origin <branch_name>]`		=> Dropbox
+	*	`git push heroku [origin <branch_name>]`	=> Heroku
+
+---
