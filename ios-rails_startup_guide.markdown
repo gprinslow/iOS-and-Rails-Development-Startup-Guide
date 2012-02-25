@@ -1,4 +1,4 @@
-# Guide to iOS 5 and Rails 3.1 Development
+# iOS and Rails Development Startup Guide
 ## Copyright (C) 2012 Garrison Prinslow
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
@@ -202,10 +202,10 @@ Developing with iOS requires installation of Apple's Xcode tool.
 
 		$ gem install rails
 		
-		Note that you may also specify a specific version, e.g.
+	*	Note that you may also specify a specific version, e.g.
 		
-				$ gem install rails --version 3.1.0
-				
+			$ gem install rails --version 3.1.0
+
 3.	When the installation completes, check that Rails is installed by running:
 
 		$ rails -v
@@ -284,8 +284,12 @@ Developing with iOS requires installation of Apple's Xcode tool.
 1.	This step is better covered by other guides on iOS development.
 	
 	*	A good starting point is the [official starting guide from Apple](https://developer.apple.com/library/ios/#referencelibrary/GettingStarted/RoadMapiOS/Introduction/Introduction.html).
-	* Of the books I have read, I like the Big Nerd Ranch Guide to iOS programming the most.
-	*	A general note: I advise naming your iOS project as you would want it to appear in the App Store.  Prototype names are best tracked using Git branches.
+	* Of the books I have read, I like the [Big Nerd Ranch Guide to iOS Programming](http://www.bignerdranch.com/book/ios_programming_the_big_nerd_ranch_guide_nd_edition_) the most.
+	
+2.	You may keep your iOS project independent of the Rails project. This is probably the simplest approach. A few caveats, however:
+
+	*	I advise naming your iOS project as you would want it to appear in the App Store.  Prototype/Version names are best tracked using Git branches.
+	*	If you reach a significant milestone in the project (e.g. you successfully integrated a service between your iOS and Rails app) it is advisable to clearly mark this point in *both* git projects at that time. This makes it easier to retrace your work if necessary.
 
 ---
 
