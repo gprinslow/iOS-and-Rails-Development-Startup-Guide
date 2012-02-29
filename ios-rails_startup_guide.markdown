@@ -299,6 +299,29 @@ Developing with iOS requires installation of Apple's Xcode tool.
 
 ## 6. Integrating iOS with Rails
 
+### Introduction
+
+This section might be the territory that is not well covered elsewhere on the web just yet.  While there are many iOS apps that can be entirely self-contained, there are also fair portion that rely on backend data hosted on a server.  Web services are often the most logical choice to fulfill that need.
+
+Rails is a good choice for a modern framework that is both service-oriented and supports a rigid MVC standard for developing its own web apps.  Depending on the level of service needed for your iOS app, you might need to develop highly atomic services that are SOA-focused.  However, getting started with Rails is relatively easy, and will support both a website as well as provide web services that are usable on iOS.
+
+### References
+
+In my own search for the best way to connect Rails and iOS, I consulted several resources:
+
+*	[https://github.com/akosma/iPhoneWebServicesClient](https://github.com/akosma/iPhoneWebServicesClient)
+* [http://www.slideshare.net/metaskills/synchronizing-core-data-with-rails](http://www.slideshare.net/metaskills/synchronizing-core-data-with-rails)
+*	[http://iphoneonrails.com/](http://iphoneonrails.com/) -- A now defunct iPhone project to integrate with Rails.  I could not get it to work, at least with Rails 3+ and iOS 4+.
+*	[http://iphonerails.org/Site/Book.html](http://iphonerails.org/Site/Book.html) -- This tutorial by Sergio Fernandez was very useful and served as a starting point for my own development. It makes use of portions of Michael Hartl's excellent [Ruby on Rails Tutorial](http://ruby.railstutorial.org/).
+
+### Framework
+
+Because I did not find a framework or project that supported web service interaction between iOS 5 and Rails 3.1, I developed my own framework and used it to support an iOS app that will be released soon.  I named the framework iOS-Rails-Interface or "iRI" for short.
+
+I have since shared [iRI on Github](https://github.com/gprinslow), and I hope it may prove useful to you. I know it is far from perfect so I encourage constructive criticism, suggestions, forks, etc.
+
+Please see the [iRI Github page](https://github.com/gprinslow) for details and instructions.
+
 ___
 
 ## 7. Appendix
@@ -325,7 +348,7 @@ ___
 		bin/rake db:migrate RAILS_ENV=production
 		rails server --environment production
 
-*	Precompile assets to make Heroku happy:
+*	Precompile assets for Heroku:
 
 		heroku rake db:migrate
 		bundle exec rake assets:precompile
