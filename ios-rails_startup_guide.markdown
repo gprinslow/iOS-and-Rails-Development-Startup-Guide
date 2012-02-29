@@ -295,13 +295,70 @@ Developing with iOS requires installation of Apple's Xcode tool.
 
 ## 5. Starting a Rails Project
 
+### 5.1 Git Repositories
+
+#### 5.1.1 Git Local Repository
+
+1.	To start a new Rails project called "example", go to your Rails workspace, then type:
+
+		$ rails new example
+
+2.	Wait for the command to finish generating the template project files/directories. 
+3.	Navigate to your project directory: `cd example`
+4.	Set up your Git repository:
+		
+		$ git init
+
+5.	Create a `.gitignore` file to avoid committing unnecessary files.  For example:
+
+		$ mate .gitignore
+		
+	Then add the following to the .gitignore file:
+		
+		.bundle
+		db/*.sqlite3*
+		log/*.log
+		*.log
+		/tmp/
+		doc/
+		*.swp
+		*~
+		.project
+		.DS_Store
+
+6.	Save the `.gitignore` file.
+7.	(Optional) Create and save a README or README.markdown file.
+8.	Then add all the files in your project to git (except ones that match a .gitignore rule):
+
+		$ git add .
+		
+9.	Then commit to the git repository with a descriptive comment:
+
+		$ git commit -m "initial commit"
+		
+10.	Your basic git project setup is complete.
+
+#### 5.1.2 Dropbox Repository Clone (Optional)
+
+#### 5.1.3 Github (Optional)
+
+### 5.2 Deploying Your Rails Project
+
+#### 5.2.1 Localhost
+
+#### 5.2.2 Deploying to Heroku (Optional)
+
+### 5.3 Rails Development Cycle & Tips
+
+
+
 ---
 
 ## 6. Integrating iOS with Rails
 
 ### Introduction
 
-This section might be the territory that is not well covered elsewhere on the web just yet.  While there are many iOS apps that can be entirely self-contained, there are also fair portion that rely on backend data hosted on a server.  Web services are often the most logical choice to fulfill that need.
+This section seems to be the territory that is not well covered elsewhere on the web.  While there are many iOS apps that can be entirely self-contained, there are also fair portion that rely on backend data hosted on a server.  Web services are often the most logical choice to fulfill that need.
 
 Rails is a good choice for a modern framework that is both service-oriented and supports a rigid MVC standard for developing its own web apps.  Depending on the level of service needed for your iOS app, you might need to develop highly atomic services that are SOA-focused.  However, getting started with Rails is relatively easy, and will support both a website as well as provide web services that are usable on iOS.
 
@@ -318,7 +375,7 @@ In my own search for the best way to connect Rails and iOS, I consulted several 
 
 Because I did not find a framework or project that supported web service interaction between iOS 5 and Rails 3.1, I developed my own framework and used it to support an iOS app that will be released soon.  I named the framework iOS-Rails-Interface or "iRI" for short.
 
-I have since shared [iRI on Github](https://github.com/gprinslow), and I hope it may prove useful to you. I know it is far from perfect so I encourage constructive criticism, suggestions, forks, etc.
+I have shared [iRI on Github](https://github.com/gprinslow), and I hope it may prove useful to you. I know it is far from perfect so I encourage constructive criticism, suggestions, forks, etc.
 
 Please see the [iRI Github page](https://github.com/gprinslow) for details and instructions.
 
