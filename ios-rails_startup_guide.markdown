@@ -340,9 +340,65 @@ Developing with iOS requires installation of Apple's Xcode tool.
 
 #### 5.1.2 Dropbox Repository Clone (Optional)
 
+The following steps describe creating a clone of your local Git repository that is saved to Dropbox. The advantage of this approach is that you can easily work on multiple computers using the same local Git repository.
+
+1.	Open a Terminal window.
+2.	Navigate to your project directory, e.g.:
+	
+		$	cd ~/workspace/rails/project_name
+	
+3.	Initialize a local Git repository (if you haven't already; see step 5.1.1).
+4.	Next, clone the local repository to Dropbox using the --bare option:
+
+		$ git clone --bare . ~/Dropbox/dev/repo_clones/project_name.git
+
+	The Dropbox directory above is provided as an example.  Also, be sure to name your `project.git` file according to your actual project name.
+	
+5.	Create a remote alias in order to push to the cloned repo:
+
+		$ git remote add project_name_alias ~/Dropbox/dev/repo_clones/project_name.git
+	
+	Note that you can create an alias for your project here, and indeed it may help to name it differently from other remote destinations; e.g., `project-clone`.
+	
+6.	Work on your project normally in your local workspace.
+7.	When you are ready to push to the cloned repository, the command is:
+
+		$ git push project_name_alias master
+		
+	Where `master` is the branch you are pushing.
+
+8.	If you want to work on a different computer, install as described to this point. Then, to clone the project:
+
+		$ git clone ~/Dropbox/dev/repo_clones/project_name.git
+		
+9.	Continue working as before and push back to the repo.
+
 #### 5.1.3 Github (Optional)
 
+Do the following steps to create any new project that you want backed up to Github:
+
+1.	Go to https://github.com and log in with your account.
+2.	Select “New Repository”.
+3.	On the Create a New Repository dialog:
+
+	*	Project Name: how you will refer to it (alias) locally and the project name visible to others
+	*	Description: (Optional) description of your project
+	*	Homepage URL: (Optional) URL for your project in general
+
+4.	Once you have created the new repository it will give you instructions.
+5.	In this case, because you have already created the repository, just add the remote alias:
+		
+		$	git remote add origin git@github.com:<username>/<github_project_name>.git
+
+6.	Then push the code to Github:
+		
+		$	git push -u origin master
+		
+7.	Setup of Github is complete.
+
 ### 5.2 Deploying Your Rails Project
+
+Deploying your Rails project allows you to test its functionality. During development, the localhost server is most useful, but other deployment options are available as well.
 
 #### 5.2.1 Localhost
 
@@ -375,7 +431,7 @@ In my own search for the best way to connect Rails and iOS, I consulted several 
 
 Because I did not find a framework or project that supported web service interaction between iOS 5 and Rails 3.1, I developed my own framework and used it to support an iOS app that will be released soon.  I named the framework iOS-Rails-Interface or "iRI" for short.
 
-I have shared [iRI on Github](https://github.com/gprinslow), and I hope it may prove useful to you. I know it is far from perfect so I encourage constructive criticism, suggestions, forks, etc.
+I have shared **[iRI on Github](https://github.com/gprinslow)**, and I hope it may prove useful to you. I know it is far from perfect so I welcome constructive criticism, suggestions, forks, etc.
 
 Please see the [iRI Github page](https://github.com/gprinslow) for details and instructions.
 
