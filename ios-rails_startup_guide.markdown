@@ -491,8 +491,53 @@ Deploying your Rails project allows you to test its functionality. During develo
 
 ### 5.3 Rails Development Cycle & Tips
 
+This section is not intended to be a replacement for a dedicated Rails 3 tutorial, but mainly a “Getting Started” guide. For learning Rails, I found the [Ruby on Rails Tutorial by Michael Hartl](http://ruby.railstutorial.org/) to be very helpful.
 
+However, I will provide tips here on how to use the setup as described effectively while developing:
 
+1.	Before coding:
+
+	* Start a branch with the topic of a related set of development tasks (e.g. create Users controller).
+	
+2.	When writing code:
+
+	*	Use TextMate or your selected text editor to edit all the Rails files.
+	*	Commit with Git often, with related changes together.
+	* Check how things are running with major changes on your localhost.
+	* If you are going to do a risky change, create a new branch first.
+	
+3.	Test-Driven-Development (TDD) with autotest running is probably the most thorough way to develop, but not the fastest when prototyping.
+
+	1.	To install autotest with growl events, run the following commands:
+
+			$ gem install autotest
+			$ gem install autotest-rails-pure
+			$ gem install autotest-fsevent
+			$ gem install autotest-growl
+	
+	2.	Then, create and update a file `.autotest` in your home `~` directory with:
+
+			require 'autotest/growl'
+			require 'autotest/fsevent'
+	
+	3.	To run autotest:
+	
+			$ autotest
+
+4.	At the end of each work session, push to your remote repositories as applicable:
+	
+		Github:		$ git push origin <branch_name>
+		Dropbox:	$ git push <dropbox_alias_name> origin <branch_name>
+		Heroku:		$ git push <heroku_alias_name> origin <branch_name>
+	
+	Note: the default is `origin master` so you only need to specify `origin <branch>` if you want to push a branch other than master.
+	
+5.	At the end of each set of code:
+	
+	*	Do a unit test of that set of code.  Fix any errors before the next step.
+	*	Merge the branch to the Master (or whatever primary branch you are using).
+	
+6.	Periodically, integration test all of your code, ideally in both your local test environment and on your Heroku production environment.  The frequency of this depends on the nature of your app and the volume of changes in each branch.
 
 ---
 
