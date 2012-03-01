@@ -402,9 +402,95 @@ Deploying your Rails project allows you to test its functionality. During develo
 
 #### 5.2.1 Localhost
 
+1.	After all the setup, its time to take a look at your new app, is it is provided by default.
+2.	If you are using TextMate, create a New Project, then drag your project folder to the corresponding area in TextMate.  This will provide an easy way to navigate the many files and folders in a Rails project.
+3.	Look for the “Gemfile” in your project’s root directory.  This contains a list of the gems that should be included in your project, with the option of specifying them by environment. You do not need to change anything right now, however.
+4.	To use the Gemfile and install the appropriate gems, run this command:
+		
+		$ bundle install
+5.	After the gem installation completes, you can run the following command to run a web server for your app as localhost:
+
+		$ rails server
+
+6.	The output on the console will tell you that the app is running on port 3000 at address 0.0.0.0.  You can then view the web app by going to:
+
+		http://localhost:3000/ (which corresponds to 127.0.0.1)
+
+7.	You will then see the default welcome screen provided by Rails -- You’re riding Ruby on Rails! 
+8.	You might want to take a look at your application’s environment, although you need not change anything right now.
+
 #### 5.2.2 Deploying to Heroku (Optional)
 
+1.	While it is a bit early to be thinking about deployment, especially with an empty starter app, setting it up now will make it easier to deploy incrementally and test in a non-local environment.
+2.	Unless you are a corporate developer (team) who can afford hosting with Engine Yard, the recommended approach is Heroku.  Heroku offers free plans to get started, and if you need more performance/storage/etc. you can upgrade later.  It is quite easy to deploy your app, so long as you are using Git.  This guide assumes you are using Git.
+3.	First, you need to [sign up](https://api.heroku.com/signup) for a Heroku account.  After signing up, follow any provided instructions.
+	
+	*	Note that if you already have a Heroku account, but are re-installing, there is a [quickstart guide](http://devcenter.heroku.com/articles/quickstart) that describes these steps.
+	
+4.	Install the heroku gem:
+
+	$ gem install heroku
+	
+5.	Add your credentials (public key) to heroku, which you should have created for Git.  Run the command below and then enter your heroku account credentials:
+
+		$ heroku keys:add
+
+6.	Run the following command to create a new application where your app will be hosted:
+
+		$ heroku create
+
+	*	Take note of the URL.  Your app will be accessible at this URL from any browser after you push to it.
+7.	To deploy to heroku use Git to push the app to heroku:
+	
+		$ git push heroku master
+
+8.	Finally, to open your app using your default web browser as hosted on heroku:
+	
+		$ heroku open
+
+9.	If you are not satisfied with the assigned subdomain, you may use the following command to rename the subdomain:
+	
+		$ heroku rename <new name>
+
+10.	At some point, you will need to bootstrap your database; you may do it now:
+	
+		$ heroku rake db:migrate
+
+	If it complains about not having a “activerecord-postgresql-adapter” gem:
+	
+	1.	Create the db:
+				
+			$ bin/rake db:create
+					
+	2.	Modify your Gemfile by adding:
+					
+			group :production do
+				# gems specifically for Heroku go here
+				gem 'pg'
+			end
+			
+	3.	Install your Gemfile excluding production:
+			
+			$ bundle install --without production
+			
+	4.	Next, add and commit any uncommitted files:
+
+			$ git add .
+			$ git commit -m “Modify for Heroku”
+			
+	5.	Push the changes to heroku:
+		
+			$ git push heroku
+
+	6.	Now, finally, you can re-run: 
+	
+			$ heroku rake db:migrate 
+
+11.	That’s it! Heroku makes deploying your app quite straightforward.
+12.	Later on, you may want to read about other features of [Heroku](http://www.heroku.com/).
+
 ### 5.3 Rails Development Cycle & Tips
+
 
 
 
